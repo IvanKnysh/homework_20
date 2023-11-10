@@ -4,6 +4,22 @@ const step_3 = document.querySelector(".step-3");
 const step_1_button = document.querySelector(".step-1 button");
 const step_2_button = document.querySelector(".step-2 button");
 
+const generateItemsForCountries = (item) => {
+	if (item.classList.contains("country")) {
+		step_3
+			.querySelector("table thead tr")
+			.insertAdjacentHTML("beforeend", `<td>${item.value}</td>`);
+	}
+};
+
+const generateItemsForParticipants = (item) => {
+	if (item.classList.contains("participant")) {
+		step_3
+			.querySelector("table tbody")
+			.insertAdjacentHTML("beforeend", `<tr><td>${item.value}</td></tr>`);
+	}
+};
+
 // Check inputs by input
 const checkInputsByInput = (getAllInputs) => {
 	getAllInputs.forEach((item) => {
@@ -29,7 +45,14 @@ const checkInputsByClick = (getAllInputs) => {
 			} else {
 				arr.push(0);
 			}
+
+			generateItemsForCountries(item);
+			generateItemsForParticipants(item);
 		});
+
+		step_3
+			.querySelector("table thead tr")
+			.insertAdjacentHTML("beforeend", "<td>Результат</td>");
 
 		const isValidate = arr.every((item) => item === 0);
 
@@ -50,7 +73,9 @@ step_1_button.addEventListener("click", () => {
 			.querySelector(".block:nth-child(1)")
 			.insertAdjacentHTML(
 				"beforeend",
-				`<input type="text" placeholder="Учасник ${i + 1}" />`
+				`<input type="text" class="participant" placeholder="Учасник ${
+					i + 1
+				}" />`
 			);
 	}
 
@@ -59,7 +84,7 @@ step_1_button.addEventListener("click", () => {
 			.querySelector(".block:nth-child(2)")
 			.insertAdjacentHTML(
 				"beforeend",
-				`<input type="text" placeholder="Країна ${i + 1}" />`
+				`<input type="text" class="country" placeholder="Країна ${i + 1}" />`
 			);
 	}
 
