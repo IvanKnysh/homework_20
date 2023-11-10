@@ -4,20 +4,24 @@ const step_3 = document.querySelector(".step-3");
 const step_1_button = document.querySelector(".step-1 button");
 const step_2_button = document.querySelector(".step-2 button");
 
-const generateItemsForCountries = (item) => {
-	if (item.classList.contains("country")) {
-		step_3
-			.querySelector("table thead tr")
-			.insertAdjacentHTML("beforeend", `<td>${item.value}</td>`);
-	}
+const generateItemsForCountries = (getAllInputs) => {
+	getAllInputs.forEach((item) => {
+		if (item.classList.contains("country")) {
+			step_3
+				.querySelector("table thead tr")
+				.insertAdjacentHTML("beforeend", `<td>${item.value}</td>`);
+		}
+	});
 };
 
-const generateItemsForParticipants = (item) => {
-	if (item.classList.contains("participant")) {
-		step_3
-			.querySelector("table tbody")
-			.insertAdjacentHTML("beforeend", `<tr><td>${item.value}</td></tr>`);
-	}
+const generateItemsForParticipants = (getAllInputs) => {
+	getAllInputs.forEach((item) => {
+		if (item.classList.contains("participant")) {
+			step_3
+				.querySelector("table tbody")
+				.insertAdjacentHTML("beforeend", `<tr><td>${item.value}</td></tr>`);
+		}
+	});
 };
 
 // Check inputs by input
@@ -45,18 +49,18 @@ const checkInputsByClick = (getAllInputs) => {
 			} else {
 				arr.push(0);
 			}
-
-			generateItemsForCountries(item);
-			generateItemsForParticipants(item);
 		});
-
-		step_3
-			.querySelector("table thead tr")
-			.insertAdjacentHTML("beforeend", "<td>Результат</td>");
 
 		const isValidate = arr.every((item) => item === 0);
 
 		if (isValidate) {
+			generateItemsForCountries(getAllInputs);
+			generateItemsForParticipants(getAllInputs);
+
+			step_3
+				.querySelector("table thead tr")
+				.insertAdjacentHTML("beforeend", "<td>Результат</td>");
+
 			step_2.classList.remove("active");
 			step_3.classList.add("active");
 		}
