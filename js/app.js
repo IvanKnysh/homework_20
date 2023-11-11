@@ -3,10 +3,13 @@ const step_2 = document.querySelector(".step-2");
 const step_3 = document.querySelector(".step-3");
 const step_1_button = document.querySelector(".step-1 button");
 const step_2_button = document.querySelector(".step-2 button");
+let counter = 0;
 
 const generateItemsForCountries = (getAllInputs) => {
 	getAllInputs.forEach((item) => {
 		if (item.classList.contains("country")) {
+			counter++;
+
 			step_3
 				.querySelector("table thead tr")
 				.insertAdjacentHTML("beforeend", `<td>${item.value}</td>`);
@@ -15,11 +18,25 @@ const generateItemsForCountries = (getAllInputs) => {
 };
 
 const generateItemsForParticipants = (getAllInputs) => {
+	let resultHTML = "";
+
+	for (let i = 0; i < counter; i++) {
+		resultHTML +=
+			"<td><input type='text' class='rating' placeholder='Введіть бал' /></td>";
+	}
+
 	getAllInputs.forEach((item) => {
+		const trID = item.value.split(" ").join("-").toLowerCase();
+
 		if (item.classList.contains("participant")) {
-			step_3
-				.querySelector("table tbody")
-				.insertAdjacentHTML("beforeend", `<tr><td>${item.value}</td></tr>`);
+			step_3.querySelector("table tbody").insertAdjacentHTML(
+				"beforeend",
+				`<tr class="${trID}">
+						<td>${item.value}</td>
+						${resultHTML}
+						<td>0</td>
+					</tr>`
+			);
 		}
 	});
 };

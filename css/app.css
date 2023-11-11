@@ -164,7 +164,11 @@ body {
   font-weight: 700;
 }
 .score-wrapper .wrapper .step-3 table thead tr td {
+  text-align: center;
   padding: 4px;
+}
+.score-wrapper .wrapper .step-3 table thead tr td:nth-child(1) {
+  text-align: left;
 }
 .score-wrapper .wrapper .step-3 table thead tr td:nth-last-child(1) {
   text-align: center;
@@ -199,6 +203,9 @@ body {
   color: #00296c;
   font-weight: 700;
   padding: 4px;
+}
+.score-wrapper .wrapper .step-3 table tbody tr td:nth-child(1) {
+  min-width: 150px;
 }
 .score-wrapper .wrapper .step-3 table tbody tr td:nth-child(1) input {
   font-weight: 700;

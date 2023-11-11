@@ -137,7 +137,11 @@
 							font-weight: 700;
 						}
 						td {
+							text-align: center;
 							padding: 4px;
+							&:nth-child(1) {
+								text-align: left;
+							}
 							&:nth-last-child(1) {
 								text-align: center;
 								color: #00296c;
@@ -179,6 +183,7 @@
 							font-weight: 700;
 							padding: 4px;
 							&:nth-child(1) {
+								min-width: 150px;
 								input {
 									font-weight: 700;
 								}
