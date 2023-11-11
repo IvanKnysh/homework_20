@@ -3,6 +3,7 @@ const step_2 = document.querySelector(".step-2");
 const step_3 = document.querySelector(".step-3");
 const step_1_button = document.querySelector(".step-1 button");
 const step_2_button = document.querySelector(".step-2 button");
+const step_3_button = document.querySelector(".step-3 button");
 let counter = 0;
 
 const inputCountRatingValues = () => {
@@ -46,12 +47,10 @@ const generateItemsForParticipants = (getAllInputs) => {
 	}
 
 	getAllInputs.forEach((item) => {
-		const trID = item.value.split(" ").join("-").toLowerCase();
-
 		if (item.classList.contains("participant")) {
 			step_3.querySelector("table tbody").insertAdjacentHTML(
 				"beforeend",
-				`<tr class="${trID}">
+				`<tr>
 						<td>${item.value}</td>
 						${resultHTML}
 						<td>0</td>
@@ -136,4 +135,27 @@ step_1_button.addEventListener("click", () => {
 
 	step_1.classList.add("disabled");
 	step_2.classList.add("active");
+});
+
+step_3_button.addEventListener("click", () => {
+	const ratingsArr = [];
+
+	document.querySelectorAll("table tbody tr").forEach((tr) => {
+		tr.querySelectorAll("td:nth-last-child(1)").forEach((td) => {
+			ratingsArr.push(td.textContent);
+		});
+	});
+
+	document.querySelectorAll("table tbody tr").forEach((tr, i) => {
+		tr.querySelectorAll("td:nth-last-child(1)").forEach((td) => {
+			if (ratingsArr[i] == td.textContent) {
+				tr.style.order = td.textContent;
+			}
+		});
+	});
+
+	if (ratingsArr.some((item) => item != 0)) {
+		document.querySelector("table tbody").style.flexDirection =
+			"column-reverse";
+	}
 });
