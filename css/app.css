@@ -140,7 +140,7 @@ body {
 .score-wrapper .wrapper .step-3 table {
   border-collapse: collapse;
 }
-.score-wrapper .wrapper .step-3 table input {
+.score-wrapper .wrapper .step-3 table select {
   width: 100%;
   height: 35px;
   border-radius: 6px;
@@ -150,12 +150,18 @@ body {
   background: transparent;
   border: 1px solid #00296c;
   color: #00296c;
+  text-align: center;
 }
-.score-wrapper .wrapper .step-3 table input::-moz-placeholder {
+.score-wrapper .wrapper .step-3 table select::-moz-placeholder {
   color: #ddd;
 }
-.score-wrapper .wrapper .step-3 table input::placeholder {
+.score-wrapper .wrapper .step-3 table select::placeholder {
   color: #ddd;
+}
+.score-wrapper .wrapper .step-3 table select::-webkit-outer-spin-button, .score-wrapper .wrapper .step-3 table select::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+  margin: 0;
 }
 .score-wrapper .wrapper .step-3 table thead tr {
   font-weight: 700;
@@ -199,6 +205,7 @@ body {
   color: #fff;
 }
 .score-wrapper .wrapper .step-3 table tbody tr td {
+  min-width: 50px;
   text-align: center;
   color: #00296c;
   font-weight: 700;

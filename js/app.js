@@ -5,6 +5,26 @@ const step_1_button = document.querySelector(".step-1 button");
 const step_2_button = document.querySelector(".step-2 button");
 let counter = 0;
 
+const inputCountRatingValues = () => {
+	document.querySelectorAll("table tbody tr").forEach((item) => {
+		item.querySelectorAll("td select").forEach((select) => {
+			select.addEventListener("change", (e) => {
+				let basicCount = 0;
+
+				e.target
+					.closest("tr")
+					.querySelectorAll("td select")
+					.forEach((sel) => {
+						basicCount += +sel.value;
+					});
+
+				item.closest("tr").querySelector("td:nth-last-child(1)").textContent =
+					basicCount;
+			});
+		});
+	});
+};
+
 const generateItemsForCountries = (getAllInputs) => {
 	getAllInputs.forEach((item) => {
 		if (item.classList.contains("country")) {
@@ -22,7 +42,7 @@ const generateItemsForParticipants = (getAllInputs) => {
 
 	for (let i = 0; i < counter; i++) {
 		resultHTML +=
-			"<td><input type='text' class='rating' placeholder='Введіть бал' /></td>";
+			"<td><select><option value='0' selected>0</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option></select></td>";
 	}
 
 	getAllInputs.forEach((item) => {
@@ -80,6 +100,8 @@ const checkInputsByClick = (getAllInputs) => {
 
 			step_2.classList.remove("active");
 			step_3.classList.add("active");
+
+			inputCountRatingValues();
 		}
 	});
 };

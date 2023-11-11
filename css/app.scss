@@ -116,7 +116,7 @@
 			display: none;
 			table {
 				border-collapse: collapse;
-				input {
+				select {
 					width: 100%;
 					height: 35px;
 					border-radius: 6px;
@@ -126,8 +126,14 @@
 					background: transparent;
 					border: 1px solid #00296c;
 					color: #00296c;
+					text-align: center;
 					&::placeholder {
 						color: #ddd;
+					}
+					&::-webkit-outer-spin-button,
+					&::-webkit-inner-spin-button {
+						appearance: none;
+						margin: 0;
 					}
 				}
 				thead {
@@ -178,6 +184,7 @@
 					tr {
 						color: #fff;
 						td {
+							min-width: 50px;
 							text-align: center;
 							color: #00296c;
 							font-weight: 700;
