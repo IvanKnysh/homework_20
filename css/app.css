@@ -27,18 +27,21 @@ body {
 }
 .score-wrapper .wrapper {
   max-height: 90vh;
-  min-width: 400px;
   max-width: calc(100% - 150px);
   background: rgba(255, 255, 255, 0.5);
   border-radius: 12px;
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
   box-shadow: 0 0 20px -10px #000;
+}
+.score-wrapper .wrapper .step-wrapper {
+  max-height: 90vh;
+  min-width: 400px;
   padding: 30px;
   overflow: auto;
 }
-.score-wrapper .wrapper .step-1 {
-  max-width: 400px;
+.score-wrapper .wrapper .table-wrapper {
+  max-height: calc(100vh - 200px);
 }
 .score-wrapper .wrapper .step-1 label {
   display: block;
@@ -253,7 +256,7 @@ body {
   font-size: 18px;
   background: #00296c;
   color: #ffffff;
-  margin: 20px auto 0;
+  margin: 20px auto;
   transition: 0.3s;
 }
 .score-wrapper .wrapper .step-3 button:hover {
@@ -266,14 +269,15 @@ body {
 @media (max-width: 800px) {
   .score-wrapper .wrapper {
     max-width: calc(100% - 20px);
-    min-width: auto;
-    padding: 20px;
   }
-  .score-wrapper .wrapper .step-1 {
-    min-width: 300px;
+  .score-wrapper .wrapper .step-wrapper {
+    min-width: 320px;
+  }
+  .score-wrapper .wrapper .table-wrapper {
+    padding-bottom: 0;
   }
   .score-wrapper .wrapper .step-2 {
-    width: 300px;
+    width: 320px;
   }
   .score-wrapper .wrapper .step-3 table thead tr td {
     width: 150px;
