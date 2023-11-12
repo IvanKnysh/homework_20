@@ -26,6 +26,7 @@ body {
   align-items: center;
 }
 .score-wrapper .wrapper {
+  max-height: 90vh;
   min-width: 400px;
   max-width: calc(100% - 150px);
   background: rgba(255, 255, 255, 0.5);
@@ -34,6 +35,7 @@ body {
           backdrop-filter: blur(5px);
   box-shadow: 0 0 20px -10px #000;
   padding: 30px;
+  overflow: auto;
 }
 .score-wrapper .wrapper .step-1 {
   max-width: 400px;
@@ -138,6 +140,7 @@ body {
   display: none;
 }
 .score-wrapper .wrapper .step-3 table {
+  width: 100%;
   border-collapse: collapse;
 }
 .score-wrapper .wrapper .step-3 table select {
@@ -163,20 +166,29 @@ body {
           appearance: none;
   margin: 0;
 }
+.score-wrapper .wrapper .step-3 table thead {
+  display: flex;
+}
 .score-wrapper .wrapper .step-3 table thead tr {
+  display: flex;
+  align-items: center;
   font-weight: 700;
 }
 .score-wrapper .wrapper .step-3 table thead tr input {
   font-weight: 700;
 }
 .score-wrapper .wrapper .step-3 table thead tr td {
+  width: 200px;
+  flex: 1 0 auto;
   text-align: center;
   padding: 4px;
+  word-break: break-word;
 }
 .score-wrapper .wrapper .step-3 table thead tr td:nth-child(1) {
   text-align: left;
 }
 .score-wrapper .wrapper .step-3 table thead tr td:nth-last-child(1) {
+  width: 100px;
   text-align: center;
   color: #00296c;
 }
@@ -201,10 +213,19 @@ body {
   background: #00296c;
   transform: rotate(12deg) translateY(-50%);
 }
+.score-wrapper .wrapper .step-3 table tbody {
+  display: flex;
+  flex-direction: column;
+}
 .score-wrapper .wrapper .step-3 table tbody tr {
+  display: flex;
+  align-items: center;
   color: #fff;
+  border-radius: 10px;
 }
 .score-wrapper .wrapper .step-3 table tbody tr td {
+  width: 200px;
+  flex: 1 0 auto;
   min-width: 50px;
   text-align: center;
   color: #00296c;
@@ -212,10 +233,13 @@ body {
   padding: 4px;
 }
 .score-wrapper .wrapper .step-3 table tbody tr td:nth-child(1) {
-  min-width: 150px;
+  word-break: break-word;
 }
 .score-wrapper .wrapper .step-3 table tbody tr td:nth-child(1) input {
   font-weight: 700;
+}
+.score-wrapper .wrapper .step-3 table tbody tr td:nth-last-child(1) {
+  width: 100px;
 }
 .score-wrapper .wrapper .step-3 button {
   display: block;
@@ -237,4 +261,40 @@ body {
 }
 .score-wrapper .wrapper .step-3.active {
   display: block;
+}
+
+@media (max-width: 800px) {
+  .score-wrapper .wrapper {
+    max-width: calc(100% - 20px);
+    min-width: auto;
+    padding: 20px;
+  }
+  .score-wrapper .wrapper .step-1 {
+    min-width: 300px;
+  }
+  .score-wrapper .wrapper .step-2 {
+    width: 300px;
+  }
+  .score-wrapper .wrapper .step-3 table thead tr td {
+    width: 150px;
+    font-size: 14px;
+  }
+  .score-wrapper .wrapper .step-3 table thead tr:nth-child(1) td:nth-child(1) {
+    width: 100px;
+  }
+  .score-wrapper .wrapper .step-3 table thead tr:nth-child(1) td:nth-child(1) span {
+    font-size: 12px;
+  }
+  .score-wrapper .wrapper .step-3 table tbody tr td {
+    width: 150px;
+  }
+  .score-wrapper .wrapper .step-3 table tbody tr td:nth-child(1) {
+    width: 100px;
+    font-size: 14px;
+  }
+  .score-wrapper .wrapper .step-3 button {
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+  }
 }/*# sourceMappingURL=app.css.map */
