@@ -137,25 +137,25 @@ step_1_button.addEventListener("click", () => {
 	step_2.classList.add("active");
 });
 
-step_3_button.addEventListener("click", () => {
+// Sort table by result column
+step_3_button.addEventListener("click", (e) => {
 	const ratingsArr = [];
+	let trHTML = "";
 
 	document.querySelectorAll("table tbody tr").forEach((tr) => {
-		tr.querySelectorAll("td:nth-last-child(1)").forEach((td) => {
-			ratingsArr.push(td.textContent);
-		});
+		ratingsArr.push(tr);
 	});
 
-	document.querySelectorAll("table tbody tr").forEach((tr, i) => {
-		tr.querySelectorAll("td:nth-last-child(1)").forEach((td) => {
-			if (ratingsArr[i] == td.textContent) {
-				tr.style.order = td.textContent;
-			}
-		});
-	});
+	ratingsArr.sort(
+		(a, b) =>
+			b.children[b.children.length - 1].textContent -
+			a.children[a.children.length - 1].textContent
+	);
 
-	if (ratingsArr.some((item) => item != 0)) {
-		document.querySelector("table tbody").style.flexDirection =
-			"column-reverse";
+	for (let i = 0; i < ratingsArr.length; i++) {
+		console.log();
+		trHTML += `<tr>${ratingsArr[i].innerHTML}</tr>`;
 	}
+
+	document.querySelector("table tbody").innerHTML = trHTML;
 });

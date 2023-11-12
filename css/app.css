@@ -201,10 +201,6 @@ body {
   background: #00296c;
   transform: rotate(12deg) translateY(-50%);
 }
-.score-wrapper .wrapper .step-3 table tbody {
-  display: flex;
-  flex-direction: column;
-}
 .score-wrapper .wrapper .step-3 table tbody tr {
   color: #fff;
 }
