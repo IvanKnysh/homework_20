@@ -19,7 +19,7 @@ body {
 }
 
 .score-wrapper {
-  background: url("../images/bg.jpeg") center/cover;
+  background: url("../images/bg.jpg") center/cover;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -181,7 +181,7 @@ body {
   font-weight: 700;
 }
 .score-wrapper .wrapper .step-3 table thead tr td {
-  width: 200px;
+  width: 150px;
   flex: 1 0 auto;
   text-align: center;
   padding: 4px;
@@ -225,9 +225,11 @@ body {
   align-items: center;
   color: #fff;
   border-radius: 10px;
+  box-shadow: inset 0 10px 30px 5px rgba(255, 255, 255, 0.2);
+  margin-bottom: 5px;
 }
 .score-wrapper .wrapper .step-3 table tbody tr td {
-  width: 200px;
+  width: 150px;
   flex: 1 0 auto;
   min-width: 50px;
   text-align: center;
@@ -280,7 +282,6 @@ body {
     width: 320px;
   }
   .score-wrapper .wrapper .step-3 table thead tr td {
-    width: 150px;
     font-size: 14px;
   }
   .score-wrapper .wrapper .step-3 table thead tr:nth-child(1) td:nth-child(1) {
@@ -288,9 +289,6 @@ body {
   }
   .score-wrapper .wrapper .step-3 table thead tr:nth-child(1) td:nth-child(1) span {
     font-size: 12px;
-  }
-  .score-wrapper .wrapper .step-3 table tbody tr td {
-    width: 150px;
   }
   .score-wrapper .wrapper .step-3 table tbody tr td:nth-child(1) {
     width: 100px;
